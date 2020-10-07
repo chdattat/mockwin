@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatDividerModule,
     RouterModule,
   ],
   exports: [
@@ -34,6 +36,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     HeaderComponent,
     MatSnackBarModule,
+    MatDividerModule,
     LayoutComponent,
     RouterModule,
   ],

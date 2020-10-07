@@ -1,0 +1,165 @@
+<section id="contest">
+  <div class="contest-content">
+    <form
+      [formGroup]="contestForm"
+      #contestFormDirective="ngForm"
+      (ngSubmit)="submitContestForm()"
+      novalidate
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 p-0 d-none d-lg-block d-md-block">
+            <div class="col-md-3">
+              <img
+                src="../../../../assets/img/flag.png"
+                alt=""
+                class="d-block img-fluid mb-3 rounded-circle"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6 d-flex justify-content-end row-hl">
+            <div class="w-100 p-2 text-right">
+              <div class="text-dark">Sujith Nair</div>
+              <div class="text-dark">Lead, Manager</div>
+            </div>
+            <div class="col-md-3">
+              <img
+                src="../../../../assets/img/avatar.png"
+                alt=""
+                class="d-block img-fluid mb-3"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 bg-light text-dark p-2">
+            <h2 class="d-inline">Subject</h2>
+          </div>
+          <div class="col-sm-6 mt-2">
+            <div class="d-flex">
+              <div class="w-100">
+                <mat-form-field appearance="outline" class="mb-0">
+                  <mat-label>Subject *</mat-label>
+                  <input
+                    matInput
+                    placeholder="Subject"
+                    formControlName="subject"
+                  />
+                  <mat-error>
+                    <app-error-message
+                      [ofFormControl]="contestForm.get('subject')"
+                      [ofForm]="contestFormDirective"
+                    ></app-error-message>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mt-2">
+            <div class="d-flex">
+              <div class="w-100">
+                <mat-form-field appearance="outline" class="mb-0">
+                  <mat-label>Tags *</mat-label>
+                  <input matInput placeholder="tags" formControlName="tags" />
+                  <mat-error>
+                    <app-error-message
+                      [ofFormControl]="contestForm.get('tags')"
+                      [ofForm]="contestFormDirective"
+                    ></app-error-message>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 bg-light text-dark p-2">
+            <h2 class="d-inline">MCQ</h2>
+          </div>
+          <div class="col-sm-12 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>MCQ Here</mat-label>
+              <textarea
+                matInput
+                placeholder="MCQ Here"
+                formControlName="mcq"
+              ></textarea>
+              <mat-error>
+                <app-error-message
+                  [ofFormControl]="contestForm.get('mcq')"
+                  [ofForm]="contestFormDirective"
+                ></app-error-message>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-sm-12 bg-light text-dark p-2">
+            <h2 class="d-inline">Choice</h2>
+          </div>
+          <div class="col-sm-6 mt-2" formArrayName="choices">
+            <div
+              class="d-flex"
+              *ngFor="let choice of choices.controls; let i = index"
+            >
+              <div class="w-100">
+                <mat-form-field appearance="outline" class="mb-0">
+                  <mat-label>Choice {{ i + 1 }} *</mat-label>
+                  <input matInput placeholder="Name" [formControlName]="i" />
+                  <mat-error>
+                    <app-error-message
+                      [ofFormControl]="choice"
+                      [ofForm]="contestFormDirective"
+                    ></app-error-message>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <button
+                mat-raised-button
+                color="basic"
+                type="button"
+                (click)="addChoice()"
+              >
+                Add Choice
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-6 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Solution</mat-label>
+              <textarea
+                matInput
+                placeholder="Solution"
+                formControlName="solution"
+              ></textarea>
+              <mat-error>
+                <app-error-message
+                  [ofFormControl]="contestForm.get('solution')"
+                  [ofForm]="contestFormDirective"
+                ></app-error-message>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-divider class="mb-4"></mat-divider>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              class="mr-3"
+            >
+              Upload
+            </button>
+            <button mat-raised-button color="primary" type="button">
+              Bulk Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
+import { ContestComponent } from './components/contest/contest.component';
 
 @NgModule({
-  declarations: [ContactComponent, LoginComponent],
+  declarations: [ContactComponent, LoginComponent, ContestComponent],
   imports: [
     BrowserModule,
     RouterModule,
